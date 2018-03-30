@@ -12,6 +12,9 @@ stage ends when there are only 3 players having any chance left. The remaining 3
     himself (the number of points gained by answering correctly is doubled) or may nominate any opponent. When the 
     opponent answers correctly - he may choose what to do next. The number of questions is limited to 40. The one who 
     has the highest number of points or the ones who is the only one with points left - wins. """
+import os
+
+from playsound import playsound
 from pprint import pprint
 
 
@@ -30,12 +33,13 @@ class Player():
         self.post = post
         self.score = 0
         self.chances = 3
+        self.asked = 0
 
     def __repr__(self):
-        return "{} occupying the post number {:d}".format(self.name, self.post)
+        return "{} occupying the post number {:d} with {:d} chances left".format(self.name, self.post, self.chances)
 
 
-def load_question():
+def load_questions():
     filename = input("Give the name of the .odt file without extension")
     path = "questions/" + filename
     questions = [["Stolica Paragwaju ?", "Asuncion"], ["Stolica Boliwii ?", "La Paz"],
@@ -43,7 +47,7 @@ def load_question():
     return questions
 
 
-# getting the info about players
+# getting the initial info about players
 def get_players():
     players = []
     while True:
@@ -60,49 +64,116 @@ def get_players():
         name = input("Name of player %d:" % post)
         player = Player(name, post)
         players.append(player)
+    print("We have {:d} players taking part in our game:".format(len(players)))
+    pprint(players)
     return players
 
 
-def stage1(players):
-    questions = load_question()
+def play_correct_sound(path):
+    path = path + "\\sounds\\correct.mp3"
+    playsound(path, True)
+
+
+def play_incorrect_sound(path):
+    path = path + "\\sounds\\incorrect.mp3"
+    playsound(path, True)
+
+
+def select_player(players, num_of_players=None, question_number=None, select=False):
+    if select:
+        while True:
+            players_to_choose_from = [x.post for x in players]
+            num_chosen = int(input("Which player should answer now?"))
+            if num_chosen in players_to_choose_from:
+                break
+    else:
+        num_chosen = (question_number % (num_of_players + 1)) + 1
+    player = next((player for player in players if player.post == num_chosen), None)
+    return player
+
+
+def ask_question(current_player, question, path, out_of_range=False):
+    print("Now responding: {}, player number {:d}, chances left: {:d}".format(current_player.name,
+                                                                              current_player.post,
+                                                                              current_player.chances))
+    if not out_of_range:
+        print("Question for :{}".format(question[0]))
+        print("Correct answer: {}".format(question[1]))
+    correct = int(input("Correct?"))
+    if not correct:
+        current_player.chances -= 1
+        play_incorrect_sound(path)
+    else:
+        play_correct_sound(path)
+
+
+def check_current_player_chances(players, current_player):
+    if current_player.chances == 0:
+        players.remove(current_player)
+
+
+def check_winner(players):
+    if len(players) == 1:
+        winner = players[0]
+        print("The winner is: {}".format(winner))
+
+
+def stage1(players, path_for_sounds):
+    print("Let's begin the first stage")
+    questions1 = load_questions()
     num_of_players = len(players)
     for n in range(num_of_players * 3):
-        post_num = (n % (num_of_players + 1)) + 1
-        current_player = next((x for x in players if x.post == post_num), None)
+        current_player = select_player(players, num_of_players, n)
         if not current_player:
             continue
-        print("Now responding: {}, player number {:d}, chances left: {:d}".format(current_player.name,
-                                                                                  current_player.post,
-                                                                                  current_player.chances))
         try:
-            print("Question for :{}".format(questions[n][0]))
-            print("Correct answer: {}".format(questions[n][1]))
+            question = questions1[n]
+            ask_question(current_player, question, path_for_sounds)
         except IndexError:
             print("The pool of questions has ended")
+            ask_question(current_player, None, path_for_sounds, out_of_range=True)
+        check_current_player_chances(players, current_player)
+        check_winner(players)
 
-        correct = input("Correct?")
+    print("The players going to the SECOND STAGE are:")
+    for player in players:
+        print(player)
+    return players
 
-        if not correct:
-            current_player.chances -= 1
-        if current_player.chances == 0:
-            players.remove(current_player)
-    print("The players going to the next stage are:")
-    pprint(players)
+
+def stage2(players, path_for_sounds):
+    print("Lets begin the second stage!")
+    current_player = players[0]
+    questions2 = [["Stolica Laosu ?", "Vientian"], ["Stolica Kambodży ?", "Phnom Penh"],
+                  ["Stolica Wietnamu ?", "Hanoi"]]
+    # zmienic tutaj paramter na maksymalna liczbe pytan z drugiego etapu
+    for n in range(5):
+        try:
+            question = questions2[n]
+            ask_question(current_player, question, path_for_sounds)
+        except IndexError:
+            print("The pool of questions has ended")
+            ask_question(current_player, None, path_for_sounds, out_of_range=True)
+        check_current_player_chances(players, current_player)
+        check_winner(players)
+        current_player = select_player(players, select=True)
+    print("The players going to the FINAL STAGE are:")
+    for player in players:
+        print(player)
     return players
 
 
 def main():
     players = get_players()
-    print("We have {:d} players taking part in our game:".format(len(players)))
-    pprint(players)
-    print("Let's begin!")
+    path_for_sounds = os.getcwd()
 
-    # STAGE1
-    players_after_1stage = stage1(players)
+    ######################### STAGE1
+    players_after_1stage = stage1(players, path_for_sounds)
+
+    ######################### STAGE2
+    players_after_2stage = stage2(players, path_for_sounds)
     print(players_after_1stage)
 
-    # # STAGE2
-    # players_after_2stage = stage1(players)
     # # STAGE3
     # winner = stage1(players)
     #
