@@ -100,22 +100,24 @@ def select_player(players, num_of_players=None, question_number=None, select=Fal
     return player
 
 
-def ask_question(current_player, question=None):
-    print("Now responding: {}, player number {:d}, chances left: {:d}".format(current_player.name,
-                                                                              current_player.post,
-                                                                              current_player.chances))
+def ask_question(current_player=None, question=None):
+    if current_player:
+        print("Now responding: {}, player number {:d}, chances left: {:d}".format(current_player.name,
+                                                                                  current_player.post,
+                                                                                  current_player.chances))
     if question:
         print("Question:{}".format(question[0]))
         print("Correct answer: {}".format(question[1]))
     correct = int(input("Correct?"))
+    return correct
+
+
+def check_current_player_chances(players, current_player, correct, stage=None):
     if not correct:
         current_player.chances -= 1
         play_incorrect_sound()
     else:
         play_correct_sound()
-
-
-def check_current_player_chances(players, current_player, stage=None):
     if stage == "stage1":
         chances_to_die = 1
     if stage in ["stage2", "final_stage"]:
@@ -144,11 +146,11 @@ def stage1(players):
             continue
         try:
             question = questions1[n]
-            ask_question(current_player, question)
+            correct = ask_question(current_player, question)
         except IndexError:
             print("The pool of questions has ended")
-            ask_question(current_player)
-        check_current_player_chances(players, current_player, stage="stage1")
+            correct = ask_question(current_player)
+        check_current_player_chances(players, current_player, correct, stage="stage1")
         check_winner(players)
 
     print("The players going to the SECOND STAGE are:")
@@ -175,11 +177,11 @@ def stage2(players):
             first_question = False
         try:
             question = questions2[question_counter]
-            ask_question(current_player, question)
+            correct = ask_question(current_player, question)
         except IndexError:
             print("The pool of questions has ended")
-            ask_question(current_player)
-        check_current_player_chances(players, current_player, stage="stage2")
+            correct = ask_question(current_player)
+        check_current_player_chances(players, current_player, correct, stage="stage2")
         question_counter += 1
     print("The players going to the FINAL STAGE are:")
     for player in players:
@@ -196,20 +198,20 @@ def final_stage(players):
     questions3 = [["Stolica Ugandy ?", "Kampala"], ["Stolica Kenii ?", "Nairobi"],
                   ["Stolica Tanzani ?", "Dar es Salaam"]]
     # in the third round number of questions is limited to 40
-    for question_counter in range(40):
-        try:
-            question = questions3[question_counter]
-            ask_question(current_player, question)
-        except IndexError:
-            print("The pool of questions has ended")
-            ask_question(current_player)
-        if not first_30_points:
-            print("The first player to sey 'ME' is going to answer the question: ")
 
-            current_player = select_player(players, select=True)
-        check_current_player_chances(players, current_player, stage="final_stage")
-        if check_winner(players):
-            break
+    if not first_30_points:
+        for n in range(40):
+            question_counter = n
+            try:
+                question = questions3[question_counter]
+                correct = ask_question(question)
+            except IndexError:
+                print("The pool of questions has ended")
+                correct = ask_question()
+                current_player = select_player(players, select=True)
+            check_current_player_chances(players, current_player, stage="final_stage")
+            if check_winner(players):
+                break
     return players
 
 
