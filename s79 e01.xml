@@ -80,7 +80,9 @@
             <text:p text:style-name="P2"/>
             <text:p text:style-name="P3">którą godzinę nazywamy godziną duchów
                 <text:s text:c="58"/>
-                <text:span text:style-name="T1"><text:s/>północ
+                <text:span text:style-name="T1">
+                    <text:s/>
+                    północ
                 </text:span>
             </text:p>
             <text:p text:style-name="P3">jak nazywa się pomarańczowe warzywo korzeniowe o dużej zawartości
