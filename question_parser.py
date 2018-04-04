@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 import xml.etree.ElementTree as et
 import zipfile
-import os, sys
-
+import os
 import simpledb_connection
+
 from copy import deepcopy
 from pprint import pprint
 
@@ -71,7 +71,8 @@ class OdfReader():
         question_number = 1
         for child in text:
             dict_to_db['series_number'] = title[1]
-            dict_to_db['episode_number'] = title[3]
+            if len(title) >= 4:
+                dict_to_db['episode_number'] = title[3]
             dict_to_db['done'] = '0'
             dict_to_db['question_number'] = str(question_number)
             question_number += 1
@@ -107,15 +108,29 @@ class OdfReader():
         return questions
 
 
-def insert_questions_into_db(db_name):
-    conn = simpledb_connection.DbConnection(db_name)
+def get_odt_names():
+    odt_list = []
+    current_path = os.getcwd()
+    path = current_path + '/questions'
+    for filename in os.listdir(path):
+        if not filename.endswith('.odt'):
+            continue
+        else:
+            direct_path = 'questions/' + filename
+            odt_list.append(direct_path)
+    return odt_list
+
+
+def insert_questions_into_db(conn, questions):
     conn.insert_questions(questions)
     conn.commit()
 
 
 if __name__ == '__main__':
-    # odt_name=input('Please give the odt name:')
-    odt_name = 's79 e01.odt'
-    odt = OdfReader(odt_name)
-    questions = odt.get_content()
-    insert_questions_into_db('questions.db')
+    odt_files_with_questions = get_odt_names()
+    for odt_filename in odt_files_with_questions:
+        odt = OdfReader(odt_filename)
+        conn = simpledb_connection.DbConnection('questions.db')
+        questions = odt.get_content()
+        insert_questions_into_db(conn, questions)
+        print("Successfully inserted questions into database.")

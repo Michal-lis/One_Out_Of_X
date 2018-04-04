@@ -25,18 +25,15 @@ class DbConnection:
             "CREATE TABLE IF NOT EXISTS questions(id INTEGER, question TEXT, answer TEXT, question_number INTEGER,stage INTEGER,done NUMERIC, episode_number INTEGER, series_number INTEGER, PRIMARY KEY(id))")
 
         for quest_dict in questions:
-            # quest_dict.pop('answer', None)
-            # quest_dict.pop('episode_number', None)
-            # quest_dict.pop('question', None)
-            # quest_dict.pop('question_number', None)
-            # quest_dict.pop('series_number', None)
-            # quest_dict.pop('stage', None)
-            # quest_dict.pop('done', None)
-
             columns = ', '.join(quest_dict.keys())
             placeholders = ', '.join('?' * len(quest_dict))
             sql = 'INSERT INTO questions ({}) VALUES ({})'.format(columns, placeholders)
             self.c.execute(sql, list(quest_dict.values()))
 
-    def get_questions_for_episode(self):
-        print("azraz")
+    def get_questions_for_episode(self, series, episode):
+        # returns list of questions as list in order:
+        # id, question, answer, question number, stage, done, epi_num, series_num
+        sql = 'SELECT * FROM questions WHERE episode_number={} AND series_number={}'.format(episode, series)
+        self.c.execute(sql)
+        questions = self.c.fetchall()
+        return questions
