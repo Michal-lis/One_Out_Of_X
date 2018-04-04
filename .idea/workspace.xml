@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19942bb5-adb3-4ba1-ac4c-d094e0fc2a9e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/simpledb_connection.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/questions/s81 e02(1).odt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/question_parser.py" afterPath="$PROJECT_DIR$/question_parser.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/s79 e01.xml" afterPath="$PROJECT_DIR$/s79 e01.xml" />
@@ -14,7 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/One_Out_Of_X$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1522795571640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/One_Out_Of_X$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1522833591002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
@@ -22,47 +24,23 @@
       <file leaf-file-name="question_parser.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/question_parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-              <folding>
-                <element signature="e#46#80#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="866">
+              <caret line="104" column="27" lean-forward="true" selection-start-line="104" selection-start-column="27" selection-end-line="104" selection-end-column="27" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gameflow.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gameflow.py">
+      <file leaf-file-name="simpledb_connection.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/simpledb_connection.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="98" column="77" lean-forward="true" selection-start-line="98" selection-start-column="77" selection-end-line="98" selection-end-column="77" />
+            <state relative-caret-position="373">
+              <caret line="38" column="58" lean-forward="true" selection-start-line="38" selection-start-column="58" selection-end-line="38" selection-end-column="58" />
               <folding>
-                <element signature="e#1349#1358#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="s79 e01.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/s79 e01.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="130" column="37" lean-forward="false" selection-start-line="130" selection-start-column="37" selection-end-line="130" selection-end-column="37" />
-              <folding>
-                <element signature="n#office:font-face-decls#0;n#office:document-content#0;n#!!top" expanded="false" />
-                <element signature="n#office:automatic-styles#0;n#office:document-content#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pages.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
+                <marker date="1522833368248" expanded="true" signature="492:683" ph="CREATE TABLE... questions" />
+                <marker date="1522833368248" expanded="true" signature="492:684" ph="CREATE TABLE... questions" />
+                <marker date="1522833368248" expanded="true" signature="492:686" ph="CREATE TABLE... questions" />
+                <marker date="1522833368248" expanded="true" signature="1194:1232" ph="INSERT INTO questions... " />
               </folding>
             </state>
           </provider>
@@ -89,6 +67,8 @@
       <find>47</find>
       <find>phase</find>
       <find>next</find>
+      <find>NIE</find>
+      <find>series</find>
     </findStrings>
     <replaceStrings>
       <replace>select</replace>
@@ -108,6 +88,8 @@
         <option value="$PROJECT_DIR$/gameflow.py" />
         <option value="$PROJECT_DIR$/example.xml" />
         <option value="$PROJECT_DIR$/s79 e01.xml" />
+        <option value="$PROJECT_DIR$/../Python_toolkit/LearningPython/SQLite/CRUD1.py" />
+        <option value="$PROJECT_DIR$/simpledb_connection.py" />
         <option value="$PROJECT_DIR$/question_parser.py" />
       </list>
     </option>
@@ -398,17 +380,17 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2531983" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11353944" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33779263" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26309922" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4749164" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.68561876" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33333334" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49275362" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -434,26 +416,90 @@
           <line>142</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/simpledb_connection.py</url>
+          <line>35</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="12" />
+      <option name="time" value="14" />
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="PythonConfigurationType">
-        <watch expression="child.find(namespace_dict['span']).text" language="Python" />
-        <watch expression="child.find(namespace_dict['span'])" language="Python" />
-        <watch expression="bool(child.find(namespace_dict['span']))" language="Python" />
-        <watch expression="dict_to_db['question']" language="Python" />
-      </configuration>
-    </watches-manager>
+    <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/question_parser.py">
+    <entry file="file://$PROJECT_DIR$/../Python_toolkit/LearningPython/SQLite/CRUD1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#46#80#0" expanded="true" />
+            <marker date="1522831689339" expanded="true" signature="176:266" ph="CREATE TABLE... dataToPlot" />
+            <marker date="1522831689339" expanded="true" signature="312:375" ph="INSERT INTO dataToPlot... " />
+            <marker date="1522831689339" expanded="true" signature="499:538" ph="INSERT INTO dataToPlot... " />
+            <marker date="1522831689339" expanded="true" signature="872:911" ph="INSERT INTO dataToPlot... " />
+            <marker date="1522831689339" expanded="true" signature="1020:1044" ph="SELECT * FRO... dataToPlot" />
+            <marker date="1522831689339" expanded="true" signature="1132:1156" ph="SELECT * FRO... dataToPlot" />
+            <marker date="1522831689339" expanded="true" signature="1216:1263" ph="UPDATE dataT... " />
+            <marker date="1522831689339" expanded="true" signature="1304:1328" ph="SELECT * FRO... dataToPlot" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Python_toolkit/LearningPython/SQLite/CRUD1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1522831689339" expanded="true" signature="176:266" ph="CREATE TABLE... dataToPlot" />
+            <marker date="1522831689339" expanded="true" signature="312:375" ph="INSERT INTO dataToPlot... " />
+            <marker date="1522831689339" expanded="true" signature="499:538" ph="INSERT INTO dataToPlot... " />
+            <marker date="1522831689339" expanded="true" signature="872:911" ph="INSERT INTO dataToPlot... " />
+            <marker date="1522831689339" expanded="true" signature="1020:1044" ph="SELECT * FRO... dataToPlot" />
+            <marker date="1522831689339" expanded="true" signature="1132:1156" ph="SELECT * FRO... dataToPlot" />
+            <marker date="1522831689339" expanded="true" signature="1216:1263" ph="UPDATE dataT... " />
+            <marker date="1522831689339" expanded="true" signature="1304:1328" ph="SELECT * FRO... dataToPlot" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/question_parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gameflow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1666">
+          <caret line="98" column="77" lean-forward="true" selection-start-line="98" selection-start-column="77" selection-end-line="98" selection-end-column="77" />
+          <folding>
+            <element signature="e#1349#1358#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/s79 e01.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="130" column="37" lean-forward="false" selection-start-line="130" selection-start-column="37" selection-end-line="130" selection-end-column="37" />
+          <folding>
+            <element signature="n#office:font-face-decls#0;n#office:document-content#0;n#!!top" expanded="false" />
+            <element signature="n#office:automatic-styles#0;n#office:document-content#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/question_parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -472,9 +518,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -482,9 +525,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#46#80#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -503,9 +543,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -531,9 +568,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -541,9 +575,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="23" column="35" lean-forward="true" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
-          <folding>
-            <element signature="e#46#80#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -568,9 +599,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -578,9 +606,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="e#46#80#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -595,9 +620,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -605,16 +627,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -626,10 +638,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gameflow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="98" column="77" lean-forward="false" selection-start-line="98" selection-start-column="77" selection-end-line="98" selection-end-column="77" />
+          <folding>
+            <element signature="e#1349#1358#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Fandla/iron_bc (1)/parser_ext_td2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1615">
+          <caret line="32" column="13" lean-forward="true" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+          <folding>
+            <marker date="1521996473930" expanded="true" signature="458:1027" ph="SELECT s0.in... ext_data2" />
+            <marker date="1521996473930" expanded="true" signature="623:687" ph="SELECT disti... dm_external_td" />
+            <marker date="1521996473930" expanded="true" signature="741:828" ph="SELECT invoi... ext_data2" />
+            <marker date="1521996473930" expanded="true" signature="1052:1465" ph="SELECT s0.in... ext_data2" />
+            <marker date="1521996473930" expanded="true" signature="1217:1304" ph="SELECT invoi... ext_data2" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/s79 e01.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="130" column="37" lean-forward="false" selection-start-line="130" selection-start-column="37" selection-end-line="130" selection-end-column="37" />
+        <state relative-caret-position="286">
+          <caret line="254" column="53" lean-forward="false" selection-start-line="254" selection-start-column="53" selection-end-line="254" selection-end-column="53" />
           <folding>
             <element signature="n#office:font-face-decls#0;n#office:document-content#0;n#!!top" expanded="false" />
             <element signature="n#office:automatic-styles#0;n#office:document-content#0;n#!!top" expanded="false" />
@@ -637,23 +673,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gameflow.py">
+    <entry file="file://$PROJECT_DIR$/pages.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="98" column="77" lean-forward="true" selection-start-line="98" selection-start-column="77" selection-end-line="98" selection-end-column="77" />
+        <state relative-caret-position="102">
+          <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Python_toolkit/LearningPython/SQLite/CRUD1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="28" column="26" lean-forward="false" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
           <folding>
-            <element signature="e#1349#1358#0" expanded="true" />
+            <marker date="1522831689339" expanded="true" signature="176:266" ph="CREATE TABLE... dataToPlot" />
+            <marker date="1522831689339" expanded="true" signature="312:375" ph="INSERT INTO dataToPlot... " />
+            <marker date="1522831689339" expanded="true" signature="499:538" ph="INSERT INTO dataToPlot... " />
+            <marker date="1522831689339" expanded="true" signature="872:911" ph="INSERT INTO dataToPlot... " />
+            <marker date="1522831689339" expanded="true" signature="1020:1044" ph="SELECT * FRO... dataToPlot" />
+            <marker date="1522831689339" expanded="true" signature="1132:1156" ph="SELECT * FRO... dataToPlot" />
+            <marker date="1522831689339" expanded="true" signature="1216:1263" ph="UPDATE dataT... " />
+            <marker date="1522831689339" expanded="true" signature="1304:1328" ph="SELECT * FRO... dataToPlot" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simpledb_connection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="38" column="58" lean-forward="true" selection-start-line="38" selection-start-column="58" selection-end-line="38" selection-end-column="58" />
+          <folding>
+            <marker date="1522833368248" expanded="true" signature="492:683" ph="CREATE TABLE... questions" />
+            <marker date="1522833368248" expanded="true" signature="492:684" ph="CREATE TABLE... questions" />
+            <marker date="1522833368248" expanded="true" signature="492:686" ph="CREATE TABLE... questions" />
+            <marker date="1522833368248" expanded="true" signature="1194:1232" ph="INSERT INTO questions... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/question_parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-          <folding>
-            <element signature="e#46#80#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="866">
+          <caret line="104" column="27" lean-forward="true" selection-start-line="104" selection-start-column="27" selection-end-line="104" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
