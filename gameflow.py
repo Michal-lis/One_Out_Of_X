@@ -12,12 +12,8 @@ stage ends when there are only 3 players having any chance left. The remaining 3
     himself (the number of points gained by answering correctly is doubled) or may nominate any opponent. When the 
     opponent answers correctly - he may choose what to do next. The number of questions is limited to 40. The one who 
     has the highest number of points or the ones who is the only one with points left - wins. """
-import os
-
-from playsound import playsound
 from pprint import pprint
-
-path_for_sounds = os.getcwd()
+from utils import play_incorrect_sound, play_correct_sound, play_intro_song, load_questions
 
 
 class Question():
@@ -41,15 +37,6 @@ class Player():
         return "{} occupying the post number {:d} with {:d} chances left".format(self.name, self.post, self.chances)
 
 
-def load_questions():
-    filename = input("Give the name of the .odt file without extension")
-    path = "questions/" + filename
-    questions = [["Stolica Paragwaju ?", "Asuncion"], ["Stolica Boliwii ?", "La Paz"],
-                 ["Stolica Chile ?", "Santiago"]]
-    return questions
-
-
-# getting the initial info about players
 def get_players():
     players = []
     while True:
@@ -69,21 +56,6 @@ def get_players():
     print("We have {:d} players taking part in our game:".format(len(players)))
     pprint(players)
     return players
-
-
-def play_intro_song():
-    path = path_for_sounds + "\\sounds\\themesong.mp3"
-    playsound(path, True)
-
-
-def play_correct_sound():
-    path = path_for_sounds + "\\sounds\\correct.mp3"
-    playsound(path, True)
-
-
-def play_incorrect_sound():
-    path = path_for_sounds + "\\sounds\\incorrect.mp3"
-    playsound(path, True)
 
 
 def select_player(players, num_of_players=None, question_number=None, select=False):
@@ -106,8 +78,8 @@ def ask_question(current_player=None, question=None):
                                                                                   current_player.post,
                                                                                   current_player.chances))
     if question:
-        print("Question:{}".format(question[0]))
-        print("Correct answer: {}".format(question[1]))
+        print("Question nr {}: {}".format(question[0], question[1]))
+        print("Correct answer: {}".format(question[2]))
     correct = int(input("Correct?"))
     return correct
 
@@ -124,9 +96,12 @@ def check_current_player_chances(players, current_player, correct, stage=None):
         chances_to_die = 0
     if current_player.chances == chances_to_die:
         players.remove(current_player)
+        print("Player {} is out of the game!".format(current_player.name))
 
 
-def check_winner(players):
+def check_winner(players, end=False):
+    if end:
+        winner
     if len(players) == 1:
         winner = players[0]
         print("The winner is: {}".format(winner))
@@ -138,9 +113,9 @@ def check_winner(players):
 
 def stage1(players):
     print("Let's begin the first stage")
-    questions1 = load_questions()
+    questions1 = load_questions(len(players), stage=1)
     num_of_players = len(players)
-    for n in range((num_of_players * 2) + 1):
+    for n in range((num_of_players + 1) * 2):
         current_player = select_player(players, num_of_players, n)
         if not current_player:
             continue
@@ -166,9 +141,7 @@ def stage2(players):
     print("Lets begin the second stage!")
     first_question = True
     current_player = players[0]
-    questions2 = [["Stolica Laosu ?", "Vientian"], ["Stolica Kambodży ?", "Phnom Penh"],
-                  ["Stolica Wietnamu ?", "Hanoi"]]
-    # zmienic tutaj paramter na maksymalna liczbe pytan z drugiego etapu
+    questions2 = load_questions(25, stage=2)
     question_counter = 0
     while len(players) > 3:
         if not first_question:
@@ -191,36 +164,35 @@ def stage2(players):
 
     #########################        FINAL STAGE        #########################
 
-
+# ogarnij flow 3 stage + napisz return questions
 def final_stage(players):
     print("Lets begin the final stage!")
     first_30_points = False
-    questions3 = [["Stolica Ugandy ?", "Kampala"], ["Stolica Kenii ?", "Nairobi"],
-                  ["Stolica Tanzani ?", "Dar es Salaam"]]
-    # in the third round number of questions is limited to 40
-
+    max_num_of_questions = 40
+    questions3 = load_questions(max_num_of_questions, stage=3)
     if not first_30_points:
-        for n in range(40):
+        for n in range(max_num_of_questions):
             question_counter = n
             try:
                 question = questions3[question_counter]
-                correct = ask_question(question)
+                correct = ask_question(question=question)
             except IndexError:
-                print("The pool of questions has ended")
-                correct = ask_question()
-                current_player = select_player(players, select=True)
-            check_current_player_chances(players, current_player, stage="final_stage")
+                print("The questions ended - this is the end of the game.")
+                check_winner(players, end=True)
+                break
+            current_player = select_player(players, select=True)
+            check_current_player_chances(players, current_player, correct, stage="final_stage")
+            print("Player scores: {}, {}, {}".format(players[0].score, players[1].score, players[2].score))
             if check_winner(players):
                 break
-    return players
 
 
 def main():
-    # play_intro_song()
+    play_intro_song()
     players = get_players()
-    players_after_1stage = stage1(players)
-    players_after_2stage = stage2(players_after_1stage)
-    final_stage(players_after_2stage)
+    # players = stage1(players)
+    # players = stage2(players)
+    final_stage(players)
 
 
 if __name__ == '__main__':
