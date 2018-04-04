@@ -13,7 +13,13 @@ stage ends when there are only 3 players having any chance left. The remaining 3
     opponent answers correctly - he may choose what to do next. The number of questions is limited to 40. The one who 
     has the highest number of points or the ones who is the only one with points left - wins. """
 from pprint import pprint
-from utils import play_incorrect_sound, play_correct_sound, play_intro_song, load_questions
+
+import time
+
+from utils import play_incorrect_sound, play_correct_sound, play_intro_song, load_questions, play_outofgame_sound, \
+    tag_question_done
+from operator import attrgetter
+from prettytable import PrettyTable
 
 
 class Question():
@@ -63,7 +69,7 @@ def select_player(players, num_of_players=None, question_number=None, select=Fal
         while True:
             players_to_choose_from = [x.post for x in players]
             pprint(players_to_choose_from)
-            num_chosen = int(input("Which player should answer now?"))
+            num_chosen = int(input("Which player?"))
             if num_chosen in players_to_choose_from:
                 break
     else:
@@ -80,7 +86,10 @@ def ask_question(current_player=None, question=None):
     if question:
         print("Question nr {}: {}".format(question[0], question[1]))
         print("Correct answer: {}".format(question[2]))
+    tag_question_done(question[0])
     correct = int(input("Correct?"))
+    time.sleep(5)
+    print("time is up")
     return correct
 
 
@@ -97,16 +106,46 @@ def check_current_player_chances(players, current_player, correct, stage=None):
     if current_player.chances == chances_to_die:
         players.remove(current_player)
         print("Player {} is out of the game!".format(current_player.name))
+        play_outofgame_sound()
+
+
+def add_points(player, own_question=False):
+    if own_question:
+        player.score += 20
+    else:
+        player.score += 10
+
+
+def present_scores(players):
+    t = PrettyTable(['Name', 'Points', 'Chances'])
+    for player in players:
+        t.add_row([player.name, player.score, player.chances])
+    print(t)
+
+
+def prepare_players_for_final(players):
+    for player in players:
+        player.score = player.chances
+        player.chances = 3
+
+
+def check_30_points(players):
+    for player in players:
+        if player.score >= 30:
+            print("30 points reached, the player is now able to select the one to answer")
+            return True
+        else:
+            return False
 
 
 def check_winner(players, end=False):
-    if end:
-        winner
-    if len(players) == 1:
-        winner = players[0]
+    if end or len(players) == 1:
+        if end:
+            winner = max(players, key=attrgetter('score'))
+        else:
+            winner = players[0]
         print("The winner is: {}".format(winner))
         return winner
-
 
         #########################        STAGE1        #########################
 
@@ -127,7 +166,6 @@ def stage1(players):
             correct = ask_question(current_player)
         check_current_player_chances(players, current_player, correct, stage="stage1")
         check_winner(players)
-
     print("The players going to the SECOND STAGE are:")
     for player in players:
         print(player)
@@ -164,31 +202,43 @@ def stage2(players):
 
     #########################        FINAL STAGE        #########################
 
-# ogarnij flow 3 stage + napisz return questions
+
+# finish final workflow + double score for own question + wait 3 seconds for answer (or a clock)
 def final_stage(players):
     print("Lets begin the final stage!")
-    first_30_points = False
+    prepare_players_for_final(players)
+    own_question = False
+    thirty_points_reached = False
     max_num_of_questions = 40
     questions3 = load_questions(max_num_of_questions, stage=3)
-    if not first_30_points:
-        for n in range(max_num_of_questions):
-            question_counter = n
-            try:
-                question = questions3[question_counter]
-                correct = ask_question(question=question)
-            except IndexError:
-                print("The questions ended - this is the end of the game.")
-                check_winner(players, end=True)
-                break
+    for n in range(max_num_of_questions):
+        question = questions3[n]
+        if not thirty_points_reached:
+            correct = ask_question(question=question)
             current_player = select_player(players, select=True)
             check_current_player_chances(players, current_player, correct, stage="final_stage")
-            print("Player scores: {}, {}, {}".format(players[0].score, players[1].score, players[2].score))
+            if correct:
+                add_points(current_player, own_question)
+            present_scores(players)
+            print("spraWDZAM 30PKT")
+            thirty_points_reached = check_30_points(players)
             if check_winner(players):
                 break
 
+        else:
+            current_player = select_player(players, select=True)
+            correct = ask_question(question=question)
+            check_current_player_chances(players, current_player, correct, stage="final_stage")
+            if correct:
+                add_points(current_player, own_question)
+            present_scores(players)
+            if check_winner(players):
+                break
+    check_winner(players, end=True)
+
 
 def main():
-    play_intro_song()
+    # play_intro_song()
     players = get_players()
     # players = stage1(players)
     # players = stage2(players)
