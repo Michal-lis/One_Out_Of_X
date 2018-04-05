@@ -5,7 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/questions.db" afterPath="$PROJECT_DIR$/questions.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gameflow.py" afterPath="$PROJECT_DIR$/gameflow.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils.py" afterPath="$PROJECT_DIR$/utils.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,19 +14,50 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/One_Out_Of_X$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1522852748830" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/One_Out_Of_X$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1522886711703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="gameflow.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="utils.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+                <marker date="1522849658527" expanded="true" signature="210:246" ph="UPDATE quest... " />
+                <marker date="1522849658527" expanded="true" signature="210:247" ph="UPDATE quest... " />
+                <marker date="1522849658527" expanded="true" signature="418:484" ph="SELECT quest... questions" />
+                <marker date="1522849658527" expanded="true" signature="418:496" ph="SELECT quest... questions" />
+                <marker date="1522849658527" expanded="true" signature="418:503" ph="SELECT quest... questions" />
+                <marker date="1522849658527" expanded="true" signature="418:505" ph="SELECT quest... questions" />
+                <marker date="1522849658527" expanded="true" signature="797:833" ph="UPDATE quest... " />
+                <marker date="1522849658527" expanded="true" signature="797:836" ph="UPDATE quest... " />
+                <marker date="1522849658527" expanded="true" signature="797:837" ph="UPDATE quest... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gameflow.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gameflow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="95" column="62" lean-forward="true" selection-start-line="95" selection-start-column="62" selection-end-line="95" selection-end-column="62" />
+            <state relative-caret-position="152">
+              <caret line="180" column="27" lean-forward="false" selection-start-line="180" selection-start-column="27" selection-end-line="180" selection-end-column="27" />
               <folding>
-                <element signature="e#1349#1374#0" expanded="true" />
+                <element signature="e#1350#1361#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="codecs.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36x64/Lib/codecs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="169">
+              <caret line="308" column="0" lean-forward="false" selection-start-line="308" selection-start-column="0" selection-end-line="308" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -421,7 +451,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/gameflow.py</url>
-          <line>156</line>
+          <line>155</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -431,13 +461,29 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/gameflow.py</url>
-          <line>215</line>
-          <option name="timeStamp" value="19" />
+          <line>230</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gameflow.py</url>
+          <line>227</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gameflow.py</url>
+          <line>226</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="20" />
+      <option name="time" value="28" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="previous_player" language="Python" />
+        <watch expression="current_player" language="Python" />
+        <watch expression="current_player == previous_player" language="Python" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/utils.py">
@@ -464,7 +510,7 @@
         <state relative-caret-position="2822">
           <caret line="166" column="95" lean-forward="true" selection-start-line="166" selection-start-column="95" selection-end-line="166" selection-end-column="95" />
           <folding>
-            <element signature="e#1349#1374#0" expanded="true" />
+            <element signature="e#1350#1361#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -495,7 +541,7 @@
         <state relative-caret-position="1666">
           <caret line="98" column="77" lean-forward="true" selection-start-line="98" selection-start-column="77" selection-end-line="98" selection-end-column="77" />
           <folding>
-            <element signature="e#1349#1374#0" expanded="true" />
+            <element signature="e#1350#1361#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -550,7 +596,7 @@
         <state relative-caret-position="3417">
           <caret line="201" column="27" lean-forward="true" selection-start-line="201" selection-start-column="27" selection-end-line="201" selection-end-column="27" />
           <folding>
-            <element signature="e#1349#1374#0" expanded="true" />
+            <element signature="e#1350#1361#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -582,7 +628,7 @@
         <state relative-caret-position="3859">
           <caret line="227" column="0" lean-forward="true" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
           <folding>
-            <element signature="e#1349#1374#0" expanded="true" />
+            <element signature="e#1350#1361#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -674,10 +720,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/try.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36x64/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="308" column="0" lean-forward="false" selection-start-line="308" selection-start-column="0" selection-end-line="308" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gameflow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="180" column="27" lean-forward="false" selection-start-line="180" selection-start-column="27" selection-end-line="180" selection-end-column="27" />
+          <folding>
+            <element signature="e#1350#1361#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+        <state relative-caret-position="187">
+          <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
             <marker date="1522849658527" expanded="true" signature="210:246" ph="UPDATE quest... " />
@@ -689,24 +761,6 @@
             <marker date="1522849658527" expanded="true" signature="797:833" ph="UPDATE quest... " />
             <marker date="1522849658527" expanded="true" signature="797:836" ph="UPDATE quest... " />
             <marker date="1522849658527" expanded="true" signature="797:837" ph="UPDATE quest... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/try.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gameflow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="95" column="62" lean-forward="true" selection-start-line="95" selection-start-column="62" selection-end-line="95" selection-end-column="62" />
-          <folding>
-            <element signature="e#1349#1374#0" expanded="true" />
           </folding>
         </state>
       </provider>

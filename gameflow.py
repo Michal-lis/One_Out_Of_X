@@ -12,14 +12,16 @@ stage ends when there are only 3 players having any chance left. The remaining 3
     himself (the number of points gained by answering correctly is doubled) or may nominate any opponent. When the 
     opponent answers correctly - he may choose what to do next. The number of questions is limited to 40. The one who 
     has the highest number of points or the ones who is the only one with points left - wins. """
-from pprint import pprint
 
 import time
+import msvcrt
 
+from pprint import pprint
 from utils import play_incorrect_sound, play_correct_sound, play_intro_song, load_questions, play_outofgame_sound, \
     tag_question_done
 from operator import attrgetter
 from prettytable import PrettyTable
+from copy import deepcopy
 
 
 class Question():
@@ -88,8 +90,6 @@ def ask_question(current_player=None, question=None):
         print("Correct answer: {}".format(question[2]))
     tag_question_done(question[0])
     correct = int(input("Correct?"))
-    time.sleep(5)
-    print("time is up")
     return correct
 
 
@@ -109,7 +109,7 @@ def check_current_player_chances(players, current_player, correct, stage=None):
         play_outofgame_sound()
 
 
-def add_points(player, own_question=False):
+def add_points(player, own_question):
     if own_question:
         player.score += 20
     else:
@@ -134,8 +134,7 @@ def check_30_points(players):
         if player.score >= 30:
             print("30 points reached, the player is now able to select the one to answer")
             return True
-        else:
-            return False
+    return False
 
 
 def check_winner(players, end=False):
@@ -144,7 +143,7 @@ def check_winner(players, end=False):
             winner = max(players, key=attrgetter('score'))
         else:
             winner = players[0]
-        print("The winner is: {}".format(winner))
+        print("The winner is: {} with score {}".format(winner, winner.score))
         return winner
 
         #########################        STAGE1        #########################
@@ -210,38 +209,48 @@ def final_stage(players):
     own_question = False
     thirty_points_reached = False
     max_num_of_questions = 40
-    questions3 = load_questions(max_num_of_questions, stage=3)
+    questions3 = load_questions(max_num_of_questions, stage=2)
     for n in range(max_num_of_questions):
         question = questions3[n]
+
+        # the stage when 'first come first served'
         if not thirty_points_reached:
             correct = ask_question(question=question)
             current_player = select_player(players, select=True)
             check_current_player_chances(players, current_player, correct, stage="final_stage")
             if correct:
                 add_points(current_player, own_question)
-            present_scores(players)
-            print("spraWDZAM 30PKT")
-            thirty_points_reached = check_30_points(players)
-            if check_winner(players):
-                break
-
+                thirty_points_reached = check_30_points(players)
         else:
+
+            # getting previously answering player for the sake of own question
+            previous_player = current_player
             current_player = select_player(players, select=True)
-            correct = ask_question(question=question)
+
+            # own question
+            if current_player == previous_player and thirty_points_reached:
+                own_question = True
+            correct = ask_question(current_player, question=question)
             check_current_player_chances(players, current_player, correct, stage="final_stage")
             if correct:
                 add_points(current_player, own_question)
-            present_scores(players)
-            if check_winner(players):
-                break
+            own_question = False
+            # after the wrong the decision we come back to the stage when 'first come first served'
+            if current_player == previous_player and not correct:
+                thirty_points_reached = False
+
+        present_scores(players)
+        if check_winner(players):
+            exit()
+    # checking winner after the end of questions
     check_winner(players, end=True)
 
 
 def main():
-    # play_intro_song()
+    play_intro_song()
     players = get_players()
-    # players = stage1(players)
-    # players = stage2(players)
+    players = stage1(players)
+    players = stage2(players)
     final_stage(players)
 
 
