@@ -40,11 +40,16 @@ class Player():
         return "{} occupying the post number {:d} with {:d} chances left".format(self.name, self.post, self.chances)
 
 
-def get_players():
+def get_players(player_list=None):
+    if player_list:
+        return player_list
     players = []
     while True:
         try:
             num_of_players = int(input("How many players are going to play this game?"))
+            if num_of_players > 15:
+                print("We will not have enough questions for 15 players, choose a smaller number")
+                continue
         except ValueError:
             print("Please enter a number.")
             continue
@@ -248,7 +253,7 @@ def final_stage(players):
 
 
 def main():
-    # play_intro_song()
+    play_intro_song()
     players = get_players()
     players = stage1(players)
     players = stage2(players)

@@ -27,6 +27,13 @@ def load_questions(num, stage):
     return questions
 
 
+def restore_all_questions():
+    conn = simpledb_connection.DbConnection('questions.db')
+    sql = "UPDATE questions SET done=0"
+    conn.c.execute(sql)
+    conn.commit()
+
+
 def play_intro_song():
     path = path_for_sounds + "\\sounds\\themesong.mp3"
     playsound(path, True)

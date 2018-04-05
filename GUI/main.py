@@ -1,5 +1,6 @@
 from tkinter import *
-from pages import StartPage
+
+from GUI.pages import StartPage
 
 """
 created by mlis 30.01.2018
