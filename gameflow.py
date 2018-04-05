@@ -12,16 +12,11 @@ stage ends when there are only 3 players having any chance left. The remaining 3
     himself (the number of points gained by answering correctly is doubled) or may nominate any opponent. When the 
     opponent answers correctly - he may choose what to do next. The number of questions is limited to 40. The one who 
     has the highest number of points or the ones who is the only one with points left - wins. """
-
-import time
-import msvcrt
-
 from pprint import pprint
 from utils import play_incorrect_sound, play_correct_sound, play_intro_song, load_questions, play_outofgame_sound, \
     tag_question_done
 from operator import attrgetter
 from prettytable import PrettyTable
-from copy import deepcopy
 
 
 class Question():
@@ -89,7 +84,13 @@ def ask_question(current_player=None, question=None):
         print("Question nr {}: {}".format(question[0], question[1]))
         print("Correct answer: {}".format(question[2]))
     tag_question_done(question[0])
-    correct = int(input("Correct?"))
+    while True:
+        try:
+            correct = int(input("Correct?"))
+        except ValueError:
+            continue
+        else:
+            break
     return correct
 
 
@@ -228,7 +229,7 @@ def final_stage(players):
             current_player = select_player(players, select=True)
 
             # own question
-            if current_player == previous_player and thirty_points_reached:
+            if current_player.post == previous_player.post and thirty_points_reached:
                 own_question = True
             correct = ask_question(current_player, question=question)
             check_current_player_chances(players, current_player, correct, stage="final_stage")
@@ -247,7 +248,7 @@ def final_stage(players):
 
 
 def main():
-    play_intro_song()
+    # play_intro_song()
     players = get_players()
     players = stage1(players)
     players = stage2(players)

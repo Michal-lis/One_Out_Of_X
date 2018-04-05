@@ -8,7 +8,7 @@ path_for_sounds = os.getcwd()
 
 def tag_question_done(question_id):
     conn = simpledb_connection.DbConnection('questions.db')
-    sql = "UPDATE questions SET done=2 WHERE id={}".format(question_id)
+    sql = "UPDATE questions SET done=1 WHERE id={}".format(question_id)
     conn.c.execute(sql)
     conn.commit()
 
@@ -16,7 +16,7 @@ def tag_question_done(question_id):
 def load_questions(num, stage):
     conn = simpledb_connection.DbConnection('questions.db')
     sql = "SELECT id,question,answer FROM questions WHERE stage={} AND done=0 ORDER BY id LIMIT {}".format(stage,
-                                                                                                           num * 2)
+                                                                                                           1 + num * 2)
     conn.c.execute(sql)
     questions = conn.c.fetchall()
     ids = [x[0] for x in questions]
