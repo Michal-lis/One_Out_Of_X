@@ -1,6 +1,6 @@
 # One_Out_Of_X
 This project is a game simulating famous Polish television quiz show named "1 z 10" (1 out of 10).
-Written in Python 3, with questions found on the internet and parsed into SQLite DB.
+Written in Python 3, with questions found on the internet as .odt files and and parsed into SQLite DB.
 
 Rules:
 Each player has 3 chances at the beginning
